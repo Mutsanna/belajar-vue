@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>VueJS Wach</title>
+        <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+    </head>
+    <body>
+        <div id="databinding">
+            Kilometer : <input type="text" v-model="kilometer">
+            Meter : <input type="text" v-model="meter">
+        </div>
+
+        <script type="text/javascript">
+            var vm = new Vue({
+                el: '#databinding',
+                data: {
+                    kilometer:0,
+                    meter:0
+                },
+                watch:{
+                    kilometer:function(val){
+                        this.kilometer = val;
+                        this.meter = val * 1000;
+                    },
+                    meter:function(val){
+                        this.kilometer = val / 1000;
+                        this.meter = val;
+                    }
+                }
+            })
+        </script>
+    </body>
+</html>
